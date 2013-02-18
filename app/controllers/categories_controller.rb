@@ -1,16 +1,29 @@
 class CategoriesController < ApplicationController
+  before_filter :books, :only => :index
+
+  def books
+    if params[:ord]
+      if params[:id]
+        @category = Category.find(params[:id])
+        params[:ord] == "asc"?
+        @books = @category.books.sort_by{|b| b[:title]} :
+        @books = @category.books.sort_by{|b| b[:title]}.reverse 
+      else
+        @books = Book.order("title #{params[:ord]}").all.first(16)
+      end
+    elsif params[:id]
+      @category = Category.find(params[:id])
+      @books = @category.books
+    else
+      @books = Book.all.reverse.first(16)
+    end
+  end
+  
   # GET /categories
   # GET /categories.json
   def index
     @categories = Category.all
-    
-    if params[:id]
-    @category = Category.find(params[:id])
-    @books = @category.books 
-    else
-    @books = Book.all.reverse.first(16)
-    end
-    
+           
     respond_to do |format|
       format.html # index.html.erb
       format.xml { render xml: @categories }
@@ -54,8 +67,8 @@ class CategoriesController < ApplicationController
 
     respond_to do |format|
       if @category.save
-        format.html { redirect_to @category, notice: 'Category was successfully created.' }
-        format.json { render json: @category, status: :created, location: @category }
+        format.html { redirect_to new_book_path, notice: 'Category was successfully created.' }
+        format.json { render json: new_book_path, status: :created, location: @category }
       else
         format.html { render action: "new" }
         format.json { render json: @category.errors, status: :unprocessable_entity }

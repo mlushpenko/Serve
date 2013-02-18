@@ -1,4 +1,4 @@
-<h1>Books</h1>
+<%= link_to 'Show all books', categories_path %>
 
 <% if @books.empty? %>
 <br />
@@ -8,13 +8,14 @@ Oops! No books have been added to this category yet.
   <tr>
     <th>Image </th> <!--maybe this delimiter - inline style. Better to get rid of him later-->
     <th>Title 
-        <%= link_to "", {categories_path, :ord => "asc"}, :class => "icon-circle-arrow-up" %>
-        <%= link_to "", {categories_path, :ord => "desc"},:class => "icon-circle-arrow-down" %>
+    <%= link_to "", {:controller => "categories", :action => "index", :ord => "asc"},
+    :class => "icon-circle-arrow-up" %>
+    <%= link_to "", {:controller => "categories", :action => "index", :ord => "desc"},
+    :class => "icon-circle-arrow-down" %>
     </th>
     <th>Category </th>
     <th>Author </th>
     <th>Description</th>
-    <th></th>
     <th></th>
     <th></th>
   </tr>
@@ -22,11 +23,10 @@ Oops! No books have been added to this category yet.
 <% @books.each do |book| %>
   <tr>
     <td><%= book.image %></td>
-    <td><%= book.title %></td>
+    <td><%= link_to book.title, book_path(book) %></td>
     <td><%= book.category_id %></td>
     <td><%= book.author %></td>
     <td><%= book.description %></td>
-    <td><%= link_to 'Show', book %></td>
     <td><%= link_to 'Edit', edit_book_path(book) %></td>
     <td><%= link_to 'Destroy', book, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
@@ -36,4 +36,3 @@ Oops! No books have been added to this category yet.
 <br />
 
 <%= link_to 'New Book', new_book_path %>
-<%= link_to 'Show all books', categories_path %>
