@@ -8,8 +8,8 @@ Oops! No books have been added to this category yet.
   <tr>
     <th>Image </th> <!--maybe this delimiter - inline style. Better to get rid of him later-->
     <th>Title 
-        <%= link_to "", {:controller => "categories", :action => "index", :ord => "asc"}, :class => "icon-circle-arrow-up" %>
-        <%= link_to "", {:controller => "categories", :action => "index", :ord => "desc"},:class => "icon-circle-arrow-down" %>
+        <%= link_to "", {categories_path, :ord => "asc"}, :class => "icon-circle-arrow-up" %>
+        <%= link_to "", {categories_path, :ord => "desc"},:class => "icon-circle-arrow-down" %>
     </th>
     <th>Category </th>
     <th>Author </th>

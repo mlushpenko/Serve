@@ -3,6 +3,13 @@ class BooksController < ApplicationController
   # GET /books.json
   def index
     @books = Book.all
+
+    if params[:id]
+    @category = Category.find(params[:id])
+    @books = @category.books 
+    else
+    @books = Book.all.reverse.first(16)
+    end
     
     respond_to do |format|
       format.html # index.html.erb

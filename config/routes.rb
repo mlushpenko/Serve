@@ -5,7 +5,7 @@ Serve::Application.routes.draw do
   resources :categories do
      resources :books
   end
-  
+  resources :books
  
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

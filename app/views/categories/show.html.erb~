@@ -5,7 +5,7 @@
   <%= @category.name %>
 </p>
 <%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Destroy', @category, confirm: 'Are you sure?', method: :delete %> |
+<%= link_to 'Destroy', category, confirm: 'Are you sure?', method: :delete %> |
 <%= link_to 'Back', categories_path %>
 
 <% @books = @category.books %>

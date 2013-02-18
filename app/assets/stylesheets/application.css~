@@ -5,4 +5,10 @@
  *= require_self
  *= require_tree . 
 */
-= require bootstrap_and_overrides
+.glyphw{
+    background-image: url(/assets/glyphicons-halflings-white.png);
+}
+
+.glyph{
+    background-image: url(/assets/glyphicons-halflings.png);
+}

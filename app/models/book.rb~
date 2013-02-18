@@ -1,3 +1,7 @@
 class Book < ActiveRecord::Base
    belongs_to :categorie
+   validates_presence_of :image, :title, :author, :description
+   def Book.category
+   @books = Book.all.where(:category => params[:id])
+   end
 end

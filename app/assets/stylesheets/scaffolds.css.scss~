@@ -35,6 +35,9 @@ div {
   }
 }
 
+  .span2 { width:20%; float:left;}
+  .span10 { width:60%; float:right;}
+
 #notice {
   color: green;
 }
