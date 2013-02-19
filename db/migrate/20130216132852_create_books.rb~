@@ -10,5 +10,6 @@ class CreateBooks < ActiveRecord::Migration
       t.references :category
       t.timestamps
     end
+    add_index :books, :category_id
   end
 end

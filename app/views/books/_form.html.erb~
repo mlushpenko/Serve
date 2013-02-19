@@ -16,7 +16,7 @@
     <%= f.text_field :title %>
   </div>
   <div class="field">
-  <%= f.select :category_id, options_for_select(Category.all.map{ |c| [c.name, c.id] }, selected_key = f.object.category_id) %>
+  <%= f.select :country_id, options_for_select(Category.all.map{ |c| [c.name, c.id] }, selected_key = f.object.country_id) %>
   
   </div>
   <div class="field">

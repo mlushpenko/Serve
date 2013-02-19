@@ -21,6 +21,12 @@ gem 'jquery-rails'
 gem "therubyracer"
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem "twitter-bootstrap-rails"
+
+#uploading files
+gem "rmagick"
+gem 'cocaine', '0.3.2'
+gem "paperclip", '2.7'
+
 # Use unicorn as the web server
 # gem 'unicorn'
 

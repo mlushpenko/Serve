@@ -1,7 +1,6 @@
 class Book < ActiveRecord::Base
+   attr_accessible :image, :title, :author, :description, :category_id
    belongs_to :categorie
-   validates_presence_of :image, :title, :author, :description
-   def Book.category
-   @books = Book.all.where(:category => params[:id])
-   end
+   validates_presence_of :image, :title, :author, :description, :category_id
+   has_attached_file :image
 end

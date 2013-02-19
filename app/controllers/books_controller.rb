@@ -14,7 +14,8 @@ class BooksController < ApplicationController
   # GET /books/1.json
   def show
     @book = Book.find(params[:id])
-
+    @category = Category.find(@book.category_id).name #@book.category doesn't work
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @book }
@@ -59,7 +60,7 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
 
     respond_to do |format|
-      if @book.update_attributes(params[:book])
+      if @book.update_attributes(params[:book], :category_id => params[:category_id])
         format.html { redirect_to @book, notice: 'Book was successfully updated.' }
         format.json { head :ok }
       else
