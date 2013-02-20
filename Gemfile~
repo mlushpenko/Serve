@@ -25,7 +25,7 @@ gem "twitter-bootstrap-rails"
 #uploading files
 gem "rmagick"
 gem 'cocaine', '0.3.2'
-gem "paperclip", '2.7.0'
+gem "paperclip", '2.7'
 
 # Use unicorn as the web server
 # gem 'unicorn'

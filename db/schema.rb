@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(:version => 20130219181711) do
     t.datetime "image_updated_at"
   end
 
+  add_index "books", ["category_id"], :name => "index_books_on_category_id"
+
   create_table "categories", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
