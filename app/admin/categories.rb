@@ -2,9 +2,11 @@ ActiveAdmin.register Category do
 
   menu :priority => 2
   
+  config.comments = false
+  
   controller do
 
-    def create
+    def create 
       create! do |format|
          format.html { redirect_to new_admin_book_url }
       end
