@@ -1,23 +1,20 @@
-<%= link_to 'Show all books', categories_path %>
-
 <% if @books.empty? %>
 <br />
 Oops! No books have been added to this category yet.
 <% else %>
-<table class="table table-hover">
+<table class="table table-hover"> 
+  <h4><%= params[:id]? Category.find(params[:id]).name : "Recently added books" %><h4>
   <tr>
     <th>Image </th> 
     <th>Title 
     <%= link_to "", {:controller => "categories", :action => "index", :ord => "asc", :id => params[:id]},
-    :class => "icon-circle-arrow-up" %>
+    :class => "icon-caret-down" %>
     <%= link_to "", {:controller => "categories", :action => "index", :ord => "desc", :id => params[:id]},
-    :class => "icon-circle-arrow-down" %>
+    :class => "icon-caret-up" %>
     </th>
     <th>Category </th>
     <th>Author </th>
-    <th>Description</th>
-    <th></th>
-    <th></th>
+    <th>Description</th>    
   </tr>
 
 <% @books.each do |book| %>
@@ -26,13 +23,11 @@ Oops! No books have been added to this category yet.
     <td><%= link_to book.title, book_path(book) %></td>
     <td><%= Category.find(book.category_id).name %></td>
     <td><%= book.author %></td>
-    <td><%= book.description %></td>
-    <td><%= link_to 'Edit', edit_book_path(book) %></td>
-    <td><%= link_to 'Destroy', book, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= book.description %></td>    
   </tr>
 <% end %>
 </table>
 <% end %>
 <br />
 
-<%= link_to 'New Book', new_book_path %>
+<%= link_to 'Show all books', categories_path unless @books.count == Book.all.count %>

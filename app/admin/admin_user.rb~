@@ -15,9 +15,7 @@ ActiveAdmin.register AdminUser, as: 'Admin' do
   actions :index, :show, :edit
   
   before_filter :skip_sidebar!, :only => :index
-  
-  config.comments = false
-  
+    
   index do                            
     column :email                     
     column :current_sign_in_at        

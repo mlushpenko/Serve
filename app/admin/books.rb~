@@ -36,7 +36,7 @@ ActiveAdmin.register Book do
      f.inputs "Book" do
        f.input :title
        f.input :author
-       f.input :category_id, :label => "Category", :as => :select, :collection => Category.all, :selected => f.object.category_id
+       f.input :category_id, :label => "Category", :as => :select, :collection => Category.all, :selected => Category.all.last.id
        f.input :description
        f.input :image, :as => :file, :label => "Image",:hint => f.template.image_tag(f.object.image.url)
      end
