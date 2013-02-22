@@ -8,7 +8,7 @@ ActiveAdmin.register Category do
 
     def create 
       create! do |format|
-         format.html { redirect_to new_admin_book_url }
+         format.html { redirect_to :action=>"new", :controller=>"admin/books", :id => "#{Category.all.count}" }
       end
     end
     
