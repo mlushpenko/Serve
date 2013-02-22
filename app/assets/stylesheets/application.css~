@@ -5,10 +5,23 @@
  *= require_self
  *= require_tree . 
 */
-.glyphw{
-    background-image: url(/assets/glyphicons-halflings-white.png);
-}
+@media print {
+  body {
+    background-color: #FFF;
+  }
 
-.glyph{
-    background-image: url(/assets/glyphicons-halflings.png);
+  #container {
+    width: auto;
+    margin: 0;
+    padding: 0;
+    border: none;
+  }
+  
+  #line_items {
+    page-break-before: always;
+  }
+  
+  #pdf_link {
+    display: none;
+  }
 }
