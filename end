@@ -1,0 +1,94 @@
+[33mcommit 17dc9072e61506c82ec0ca3b35934e18dc3944ad[m
+Author: saasbook <saasbook@saasbook.(none)>
+Date:   Fri Feb 22 22:16:28 2013 +0200
+
+    -modified gem file
+
+[1;33mdiff --git a/Gemfile b/Gemfile[m
+[1;33mindex 1aef6d2..1e40279 100644[m
+[1;33m--- a/Gemfile[m
+[1;33m+++ b/Gemfile[m
+[1;35m@@ -5,8 +5,6 @@[m [mgem 'rails', '3.1.0'[m
+ # Bundle edge Rails instead:[m
+ # gem 'rails',     :git => 'git://github.com/rails/rails.git'[m
+ [m
+[1;31m-gem 'sqlite3'[m
+[1;31m-[m
+ # Admin[m
+ gem 'activeadmin'[m
+ gem "meta_search",    '>= 1.1.0.pre'[m
+[1;35m@@ -19,6 +17,14 @@[m [mgroup :assets do[m
+   gem 'uglifier'[m
+ end[m
+ [m
+[1;32m+[m[1;32mgroup :development, :test do[m
+[1;32m+[m[1;32m  gem 'sqlite3'[m
+[1;32m+[m[1;32mend[m
+[1;32m+[m
+[1;32m+[m[1;32mgroup :production do[m
+[1;32m+[m[1;32m  gem 'pg'[m
+[1;32m+[m[1;32mend[m
+[1;32m+[m
+ gem 'jquery-rails'[m
+ [m
+ # Bootstrap fucntionality[m
+[1;33mdiff --git a/Gemfile.lock b/Gemfile.lock[m
+[1;33mindex b4a8373..eda1391 100644[m
+[1;33m--- a/Gemfile.lock[m
+[1;33m+++ b/Gemfile.lock[m
+[1;35m@@ -109,6 +109,7 @@[m [mGEM[m
+       cocaine (>= 0.0.2)[m
+       mime-types[m
+     pdfkit (0.5.3)[m
+[1;32m+[m[1;32m    pg (0.13.1)[m
+     polyamorous (0.5.0)[m
+       activerecord (~> 3.0)[m
+     polyglot (0.3.3)[m
+[1;35m@@ -187,6 +188,7 @@[m [mDEPENDENCIES[m
+   meta_search (>= 1.1.0.pre)[m
+   paperclip (= 3.1)[m
+   pdfkit[m
+[1;32m+[m[1;32m  pg[m
+   rails (= 3.1.0)[m
+   rmagick[m
+   sass-rails (~> 3.1.0)[m
+[1;33mdiff --git a/Gemfile~ b/Gemfile~[m
+[1;33mindex 15b8b75..728f0e9 100644[m
+[1;33m--- a/Gemfile~[m
+[1;33m+++ b/Gemfile~[m
+[1;35m@@ -7,7 +7,7 @@[m [mgem 'rails', '3.1.0'[m
+ [m
+ gem 'sqlite3'[m
+ [m
+[1;31m-#admin[m
+[1;32m+[m[1;32m# Admin[m
+ gem 'activeadmin'[m
+ gem "meta_search",    '>= 1.1.0.pre'[m
+ [m
+[1;35m@@ -19,17 +19,25 @@[m [mgroup :assets do[m
+   gem 'uglifier'[m
+ end[m
+ [m
+[1;32m+[m[1;32mgroup :production do[m
+[1;32m+[m[1;32m  gem 'pg'[m
+[1;32m+[m[1;32mend[m
+[1;32m+[m
+ gem 'jquery-rails'[m
+ [m
+[1;32m+[m[1;32m# Bootstrap fucntionality[m
+ gem "therubyracer"[m
+ gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS[m
+ gem "twitter-bootstrap-rails"[m
+ [m
+[1;31m-#uploading files[m
+[1;32m+[m[1;32m# Uploading files[m
+ gem "rmagick"[m
+ gem 'cocaine', '0.3.2'[m
+ gem "paperclip", '3.1'[m
+ [m
+[1;32m+[m[1;32m# Enables to download PDF of our model[m
+[1;32m+[m[1;32mgem 'pdfkit'[m
+[1;32m+[m
+ # Use unicorn as the web server[m
+ # gem 'unicorn'[m
+ [m
