@@ -7,7 +7,7 @@ gem 'rails', '3.1.0'
 
 gem 'sqlite3'
 
-#admin
+# Admin
 gem 'activeadmin'
 gem "meta_search",    '>= 1.1.0.pre'
 
@@ -21,14 +21,22 @@ end
 
 gem 'jquery-rails'
 
+# Bootstrap fucntionality
 gem "therubyracer"
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem "twitter-bootstrap-rails"
 
-#uploading files
+# Uploading files
 gem "rmagick"
 gem 'cocaine', '0.3.2'
 gem "paperclip", '3.1'
+
+# Enables to download PDF of our model
+gem 'pdfkit'
+
+# Haml
+gem "haml"
+gem "haml-rails"
 
 # Use unicorn as the web server
 # gem 'unicorn'
