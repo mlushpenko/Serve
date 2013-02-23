@@ -1,0 +1,20 @@
+%p#notice= notice
+%p
+  %b Image:
+  = image_tag @book.image.url
+%p
+  %b Title:
+  = @book.title
+%p
+  %b Category:
+  = @category
+%p
+  %b Author:
+  = @book.author
+%p
+  %b Description:
+  = @book.description
+%p
+  = link_to "Download book in PDF", book_path(@book, :format => "pdf")
+  |
+  = link_to 'Back', categories_path

@@ -40,6 +40,12 @@ gem "paperclip", '3.1'
 # Enables to download PDF of our model
 gem 'pdfkit'
 
+# Haml
+gem "haml"
+gem "haml-rails"
+gem 'html2haml'
+gem "erb2haml"
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
