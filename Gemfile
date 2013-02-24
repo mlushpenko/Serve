@@ -38,7 +38,7 @@ gem 'cocaine', '0.3.2'
 gem "paperclip", '3.1'
 
 # Enables to download PDF of our model
-gem 'pdfkit'
+gem 'prawn_rails'
 
 # Haml
 gem "haml"
