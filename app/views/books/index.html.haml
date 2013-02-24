@@ -1,26 +1,22 @@
-- if @books.empty?
-  %br/
-  Oops! No books have been added to this category yet.
-- else
-  %table.table.table-hover
-    %h4= params[:id]? Category.find(params[:id]).name : "Recently added books"
-    %thead
+%table.table.table-hover
+  %h4= params[:id]? Category.find(params[:id]).name : "Recently added books"
+  %thead
+    %tr
+      %th Image
+      %th 
+        Title
+        = link_to "", {:controller => "categories", :action => "index", :ord => "asc", :id => params[:id]}, :class => "icon-caret-down" 
+        = link_to "", {:controller => "categories", :action => "index", :ord => "desc", :id => params[:id]}, :class => "icon-caret-up"
+      %th Category
+      %th Author
+      %th Description
+  %tbody
+    - @books.each do |book|
       %tr
-        %th Image
-        %th 
-          Title
-          = link_to "", {:controller => "categories", :action => "index", :ord => "asc", :id => params[:id]}, :class => "icon-caret-down" 
-          = link_to "", {:controller => "categories", :action => "index", :ord => "desc", :id => params[:id]}, :class => "icon-caret-up"
-        %th Category
-        %th Author
-        %th Description
-    %tbody
-      - @books.each do |book|
-        %tr
-          %td= image_tag book.image.url
-          %td= link_to book.title, book_path(book)
-          %td= Category.find(book.category_id).name
-          %td= book.author
-          %td= book.description
+        %td= image_tag book.image.url
+        %td= link_to book.title, book_path(book)
+        %td= Category.find(book.category_id).name
+        %td= book.author
+        %td= book.description
 %br/
 = link_to 'Show all books', categories_path unless @books.count == Book.all.count
