@@ -20,3 +20,38 @@
         %td= book.description
 %br/
 = link_to 'Show all books', categories_path unless @books.count == Book.all.count
+/ PipeDrive API testing
+.well
+  %h4 PipeDrive API test
+  %h5 Person emails
+  - PipeDrive.activities['data'].each do |activity|
+    -if activity['type'] == "email"
+      .well=simple_format activity['note']
+/Sendgrid API testing
+.well
+  %h4 Sendgrid API test
+  %h5 Emails statistics
+  %table.table.table-hover
+    %thead
+      %tr
+        %th Date
+        %th Requests
+        %th Bounces
+        %th Clicks
+        %th Opens
+        %th Spam reports
+        %th Unique clicks
+        %th Unique opens
+        %th Blocked
+    %tbody
+      - Sendgrid.statistics.each do |stat|
+        %tr
+          %td= stat[:date]
+          %td= stat[:requests]
+          %td= stat[:bounces]
+          %td= stat[:clicks]
+          %td= stat[:opens]
+          %td= stat[:spam_reports]
+          %td= stat[:unique_clicks]
+          %td= stat[:unique_opens]
+          %td= stat[:blocked]

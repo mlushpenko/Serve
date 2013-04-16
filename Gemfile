@@ -8,9 +8,10 @@ gem 'rails', '3.1.0'
 # Admin
 gem 'activeadmin'
 gem "meta_search",    '>= 1.1.0.pre'
+gem 'databasedotcom'
+gem 'databasedotcom-rails'
+gem "httparty", "~> 0.11.0"
 
-# Gems used only for assets and not required
-# in production environments by default.
 group :assets do
   gem 'sass-rails', "  ~> 3.1.0"
   gem 'coffee-rails', "~> 3.1.0"
@@ -26,7 +27,7 @@ group :production do
 end
 
 gem 'jquery-rails'
-
+gem 'webrick', '1.3.1'
 # Bootstrap fucntionality
 gem "therubyracer"
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
@@ -51,8 +52,6 @@ gem "erb2haml"
 
 # Deploy with Capistrano
 # gem 'capistrano'
-
-# To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
 group :test do

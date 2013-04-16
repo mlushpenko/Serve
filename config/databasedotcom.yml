@@ -1,0 +1,8 @@
+#databasedotcom.yml
+host: login.salesforce.com        # Use test.salesforce.com for sandbox
+client_secret: 4887984894629499955         # This is the Consumer Secret from Salesforce
+client_id: 3MVG99qusVZJwhsmiac5qd9u1M78BA9PyipMdL1Hh3th8K8jr66YkOoLFWY57lZWajXZUawJjHSCrGgW5d794     # This is the Consumer Key from Salesforce
+sobject_module: SFDC_Models       # See below for details on using modules
+debugging: true                   # Can be useful while developing
+username: iviakciivi@gmail.com
+password: maxfreedom123TSdPbhW81VZPYUjrvSwJBmlC
