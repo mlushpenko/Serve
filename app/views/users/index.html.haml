@@ -1,0 +1,11 @@
+.well
+
+  %h3= @contact.Name 
+  %h3= @contact.Email
+  .well
+    %h3 Here are his emails:
+    - @tasks.each do |task|
+      .well
+        = simple_format task.Description
+        - @attachments[@tasks.index(task)].each do |att|
+          %h4= link_to att.Name, "https://c.na15.content.force.com/servlet/servlet.FileDownload?file=#{att.Id}", target: "_blank" 

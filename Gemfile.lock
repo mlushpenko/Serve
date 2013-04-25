@@ -83,6 +83,9 @@ GEM
     fastercsv (1.5.5)
     formtastic (2.2.1)
       actionpack (>= 3.0)
+    gchart (1.0.0)
+      hoe (>= 2.3.2)
+    googlecharts (1.6.8)
     haml (4.0.0)
       tilt
     haml-rails (0.4)
@@ -93,6 +96,8 @@ GEM
     has_scope (0.5.1)
     hashery (2.1.0)
     hike (1.2.1)
+    hoe (3.5.3)
+      rake (>= 0.8, < 11.0)
     hpricot (0.8.6)
     html2haml (1.0.1)
       erubis (~> 2.7.0)
@@ -234,12 +239,15 @@ DEPENDENCIES
   databasedotcom
   databasedotcom-rails
   erb2haml
+  gchart
+  googlecharts
   haml
   haml-rails
   html2haml
   httparty (~> 0.11.0)
   jquery-rails
   less-rails
+  mail
   meta_search (>= 1.1.0.pre)
   paperclip (= 3.1)
   pg

@@ -1,4 +1,4 @@
-#PipeDrive
+#Sendgrid
 class Sendgrid
   include HTTParty
   base_uri 'sendgrid.com'

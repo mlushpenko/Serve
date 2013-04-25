@@ -55,3 +55,4 @@
           %td= stat[:unique_clicks]
           %td= stat[:unique_opens]
           %td= stat[:blocked]
+  = GoogleChart.graph(Sendgrid.statistics)
