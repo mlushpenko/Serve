@@ -246,6 +246,7 @@ DEPENDENCIES
   html2haml
   httparty (~> 0.11.0)
   jquery-rails
+  json
   less-rails
   mail
   meta_search (>= 1.1.0.pre)

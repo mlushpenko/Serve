@@ -4,8 +4,11 @@
   %h3= @contact.Email
   .well
     %h3 Here are his emails:
-    - @tasks.each do |task|
+    - @emails.each do |email| 
       .well
-        = simple_format task.Description
-        - @attachments[@tasks.index(task)].each do |att|
+        %h5= "Subject: " + email.subject if email.subject.present?
+        %h5= "From: " + email.from.join(' ,') if email.from.present?
+        %h5= "To: " + email.to.join(' ,') if email.to.present?
+        .div= simple_format email.body.raw_source if email.body.present?
+        - @attachments[@emails.index(email)].each do |att|
           %h4= link_to att.Name, "https://c.na15.content.force.com/servlet/servlet.FileDownload?file=#{att.Id}", target: "_blank" 

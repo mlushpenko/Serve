@@ -10,8 +10,9 @@ class UsersController < ApplicationController
     # @required_attachments_list = @tasks_list.map{|tasks_per_contact| tasks_per_contact.map{|task| client.query("SELECT Id, ParentId, Name FROM Attachment WHERE ParentId = '#{task.Id}' ")}}
     
     @contact = Contact.find_by_Email("iviakciivi@hotmail.com")
-    @tasks = Task.find_all_by_WhoId(@contact.Id)
-    @attachments = @tasks.map{|task| Attachment.find_all_by_ParentId(task.Id)}
+    tasks = Task.find_all_by_WhoId(@contact.Id)
+    @emails = tasks.map{|task| Mail.new(task.Description)}
+    @attachments = tasks.map{|task| Attachment.find_all_by_ParentId(task.Id)}
     # @tasks_list = @contacts.map{|c| Task.find_all_by_WhoId(c.Id)}
     # @required_attachments_list = @tasks_list.map{|tasks_per_contact| tasks_per_contact.map{|task| Attachment.find_all_by_ParentId(task.Id)}}
     
