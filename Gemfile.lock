@@ -137,6 +137,7 @@ GEM
     multi_json (1.6.1)
     multi_xml (0.5.3)
     multipart-post (1.2.0)
+    nokogiri (1.5.9)
     orm_adapter (0.4.0)
     paperclip (3.1.0)
       activemodel (>= 3.0.0)
@@ -250,6 +251,7 @@ DEPENDENCIES
   less-rails
   mail
   meta_search (>= 1.1.0.pre)
+  nokogiri (~> 1.5.9)
   paperclip (= 3.1)
   pg
   prawn_rails

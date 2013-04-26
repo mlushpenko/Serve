@@ -15,6 +15,7 @@ gem 'gchart'
 gem 'googlecharts'
 gem 'mail'
 gem 'json'
+gem "nokogiri", "~> 1.5.9"
 
 group :assets do
   gem 'sass-rails', "  ~> 3.1.0"

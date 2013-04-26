@@ -3,19 +3,22 @@ class UsersController < ApplicationController
   before_filter :load_user, :except => [:index, :new]
 
   def index
-    # Reference on how to use SalesForce SOQL
-    # client = dbdc_client
-    # @contacts = client.query("SELECT Id, Name, Email FROM Contact")
-    # @tasks_list = @contacts.map{|c|client.query("SELECT Id, WhoId, Description FROM Task WHERE WhoId = '#{c.Id}' ")}
-    # @required_attachments_list = @tasks_list.map{|tasks_per_contact| tasks_per_contact.map{|task| client.query("SELECT Id, ParentId, Name FROM Attachment WHERE ParentId = '#{task.Id}' ")}}
-    
+    #Get emails with attachments for contact
     @contact = Contact.find_by_Email("iviakciivi@hotmail.com")
     tasks = Task.find_all_by_WhoId(@contact.Id)
     @emails = tasks.map{|task| Mail.new(task.Description)}
     @attachments = tasks.map{|task| Attachment.find_all_by_ParentId(task.Id)}
-    # @tasks_list = @contacts.map{|c| Task.find_all_by_WhoId(c.Id)}
-    # @required_attachments_list = @tasks_list.map{|tasks_per_contact| tasks_per_contact.map{|task| Attachment.find_all_by_ParentId(task.Id)}}
-    
+
+    # #Get emails for company
+    # @account = Account.find_by_name("Maksym Lushpenko contacts")
+    # account_tasks = Task.find_all_by_AccountId(@account.Id)
+    # @account_emails = account_tasks.map{|task| Mail.new(task.Description.gsub(/Additional /,''))}
+
+    # Reference on how to use SalesForce SOQL
+    client = dbdc_client
+    @account = client.query("SELECT Id, Name FROM Account WHERE Name = 'Maksym Lushpenko contacts' ").first
+    account_tasks = client.query("SELECT AccountId, Description FROM Task WHERE AccountId = '#{@account.Id}' LIMIT 6 ") #OFFSET 7
+    @account_emails = account_tasks.map{|task| Mail.new(task.Description.gsub(/Additional /,''))}
   end
 
   def show
